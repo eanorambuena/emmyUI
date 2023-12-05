@@ -1,2 +1,3 @@
-# juroQueFui
-Plataforma de gestión de asistencia de forma semiautomática
+# emmyUI
+
+Tailwind (+Flowbite) based Emmy.js components

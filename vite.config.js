@@ -1,4 +1,4 @@
 export default {
     publicDir: 'public',
-    base: '/juroQueFui',
+    base: '/emmyUI',
 }

@@ -1,25 +1,28 @@
 import { load } from "emmy-dom";
-import "./components/TextArea";
+import "./components/Stars.js";
+import "./components/Nav.js";
 
-load('/juroQueFui/Home.html', 'Home');
-load('/juroQueFui/About.html', 'About');
-load('/juroQueFui/Contact.html', 'Contact');
-load('/juroQueFui/Code404.html', 'Code404');
+const BASE = '/emmyUI';
+
+load(`${BASE}/Home.html`, 'Home');
+load(`${BASE}/About.html`, 'About');
+load(`${BASE}/Contact.html`, 'Contact');
+load(`${BASE}/Code404.html`, 'Code404');
 
 function App () {
-    this.behave('div');
-    this.className = 'flex flex-col justify-space-between space-y-3 text-center w-full h-full';
+  this.behave('div');
+  this.className = 'flex flex-col justify-space-between space-y-3 text-center w-full h-full';
 
   return /*html*/`
-    <nav>
-      <a href="/juroQueFui/" onclick="route(event)">Home</a>
-      <a href="/juroQueFui/about" onclick="route(event)">About</a>
-      <a href="/juroQueFui/contact" onclick="route(event)">Contact</a>
-    </nav>
-    <Route href="/juroQueFui/" to="Home"></Route>
-    <Route href="/juroQueFui/about" to="About"></Route>
-    <Route href="/juroQueFui/404" to="Code404"></Route>
-    <Route href="/juroQueFui/contact" to="Contact"></Route>
+    <Nav
+      base="${BASE}"
+      img="https://flowbite.com/docs/images/logo.svg"
+      brand="Flowbite"
+    >
+      <Link href="/">Home</Link>
+      <Link href="/about">About</Link>
+      <Link href="/contact">Contact</Link>
+    </Nav>
     <Router></Router> 
   `;
 }
