@@ -5,9 +5,9 @@ import "./Home.js";
 
 const BASE = '/emmyUI';
 
-load(`${BASE}/About.html`, 'About');
-load(`${BASE}/Contact.html`, 'Contact');
-load(`${BASE}/Code404.html`, 'Code404');
+load(`${BASE}/about.html`, 'About');
+load(`${BASE}/contact.html`, 'Contact');
+load(`${BASE}/code404.html`, 'Code404');
 
 function App () {
   this.behave('div');

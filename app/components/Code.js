@@ -12,7 +12,7 @@ export function PrepareCode(code) {
 }
 
 function Code () { 
-    this.className = 'text-left rounded-md flex flex-col justify-center items-center w-[70%] bg-gray-100 dark:bg-gray-800 text-clip';
+    this.className = 'text-left rounded-md flex flex-col justify-center items-center w-full bg-gray-100 dark:bg-gray-800 text-clip';
 
     this.callback = () => {
         if (this.getAttribute('copy') === 'true') {
