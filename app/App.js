@@ -6,7 +6,6 @@ import "./Home.js";
 const BASE = '/emmyUI';
 
 load(`${BASE}/about.html`, 'About');
-load(`${BASE}/contact.html`, 'Contact');
 load(`${BASE}/code404.html`, 'Code404');
 
 function App () {
@@ -16,12 +15,11 @@ function App () {
   return /*html*/`
     <Nav
       base="${BASE}"
-      img="https://flowbite.com/docs/images/logo.svg"
-      brand="Flowbite"
+      img="https://emmyjs.github.io/logo.png"
+      brand="EmmyUI"
     >
       <Link href="/">Home</Link>
       <Link href="/about">About</Link>
-      <Link href="/contact">Contact</Link>
     </Nav>
     <Main></Main>
   `;
