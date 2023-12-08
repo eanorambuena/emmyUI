@@ -7,7 +7,7 @@ import "../components/Stars.js";
 const BASE = '/emmyUI';
 
 function Home() {
-    this.className = 'flex flex-col my-[10%] items-center text-center w-full h-fit gap-[3rem]';
+    this.className = 'flex flex-col my-[20%] md:my-[10%] items-center text-center w-full h-fit gap-[3rem]';
 
     return /*html*/`
         <Hero
@@ -20,7 +20,7 @@ function Home() {
                     <Card style="height: 35%; font-size: 0.7rem;"></Card>
                 </Card>
                 <Card title="Gallery" style="height: 100%;">
-                    <Gallery cols="2" sm-cols="2" xl-cols="2">
+                    <Gallery cols="2" sm-cols="2">
                         <Card style="height: 70%; font-size: 0.7rem;"></Card>
                         <Card style="height: 70%; font-size: 0.7rem;"></Card>
                     </Gallery>
@@ -35,7 +35,7 @@ function Home() {
                     <Stars number='3'></Stars>
                 </Card>
                 <Card title="Gallery" style="height: 100%;">
-                    <Gallery cols="2" sm-cols="2" xl-cols="2">
+                    <Gallery cols="2" sm-cols="2">
                         <Card style="height: 70%; font-size: 0.7rem;"></Card>
                         <Card style="height: 70%; font-size: 0.7rem;"></Card>
                     </Gallery>
