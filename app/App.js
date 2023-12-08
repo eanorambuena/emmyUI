@@ -1,11 +1,11 @@
 import { load } from "emmy-dom";
 import "./components/Nav.js";
 import "./components/Main.js";
-import "./Home.js";
+import "./pages/home.js";
+import "./pages/starsPage.js";
 
 const BASE = '/emmyUI';
 
-load(`${BASE}/about.html`, 'About');
 load(`${BASE}/code404.html`, 'Code404');
 
 function App () {
@@ -15,11 +15,14 @@ function App () {
   return /*html*/`
     <Nav
       base="${BASE}"
-      img="https://emmyjs.github.io/logo.png"
       brand="EmmyUI"
+      brand-href="${BASE}/"
+      brand-img="https://emmyjs.github.io/logo.png"
+      cta="Learn More About Emmy.js"
+      cta-href="https://emmyjs.github.io"
     >
       <Link href="/">Home</Link>
-      <Link href="/about">About</Link>
+      <Link href="/stars" to="starsPage">Stars Component</Link>
     </Nav>
     <Main></Main>
   `;

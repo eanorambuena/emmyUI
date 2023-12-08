@@ -1,30 +1,13 @@
 import { load } from "emmy-dom";
-import "./components/Card.js";
-import "./components/Code.js";
-import "./components/Gallery.js";
-import "./components/Hero.js";
-import "./components/Stars.js";
-import { PrepareCode } from "./components/Code.js";
+import "../components/Card.js";
+import "../components/Gallery.js";
+import "../components/Hero.js";
+import "../components/Stars.js";
+
+const BASE = '/emmyUI';
 
 function Home() {
     this.className = 'flex flex-col my-[10%] items-center text-center w-full h-fit gap-[3rem]';
-
-    const code = PrepareCode(/*javascript*/`
-import { load } from "emmy-dom";
-import "./components/Stars.js";
-
-function Home() {
-    this.className = 'flex flex-col justify-center items-center text-center w-full h-full';
-    return /*html*/\`
-        <h1 class="text-3xl font-bold">Bienvenido a juroQueFui</h1>
-        <p class="text-xl">
-            La plataforma de gestión de asistencia y tareas para ayudantes
-        </p>
-        <Stars_form></Stars_form>
-    \`;
-}`);
-
-    console.log(code);
 
     return /*html*/`
         <Hero
@@ -42,7 +25,7 @@ function Home() {
                         <Card style="height: 70%; font-size: 0.7rem;"></Card>
                     </Gallery>
                 </Card>
-                <Card title="Stars" style="height: 100%;">
+                <Card title="Stars" style="height: 100%;" href="${BASE}/stars">
                     <Stars number='3'></Stars>
                 </Card>
                 <Card title="Card" style="height: 100%;">

@@ -51,7 +51,7 @@ function Code () {
         </div>
         <div class="overflow-auto bg-gray-100 dark:bg-gray-800 rounded-t-none rounded-b-md p-4 dark:text-gray-400 w-full h-fit">
             <pre>
-                <code class="h-fit">${this.innerHTML}</code>
+<code class="h-fit">${this.innerHTML.trim()}</code>
             </pre>
         </div>
     `;
