@@ -8,13 +8,13 @@ function Card() {
     let imgSrc = this.getAttribute('image');
     let imgAlt = this.getAttribute('image-alt') ?? 'Card image';
     let useContent = !!this.innerHTML;
-    let lightImgSrc = this.getAttribute('light-image') ?? imgSrc ?? 'https://placehold.co/600x400/FFFFFF/1F2937';
-    let darkImgSrc = this.getAttribute('dark-image') ?? imgSrc ?? 'https://placehold.co/600x400/1F2937/FFF';
+    let lightImgSrc = this.getAttribute('light-image') ?? imgSrc ?? 'https://placehold.co/300x200/FFFFFF/1F2937';
+    let darkImgSrc = this.getAttribute('dark-image') ?? imgSrc ?? 'https://placehold.co/300x200/1F2937/FFF';
 
     return /*html*/`
         <a
             href="${href}"
-            class="flex flex-col grow block self-center justify-self-center w-full h-fitbg-white rounded-lg border border-gray-100 hover:border-white dark:border-gray-800 dark:hover:border-gray-700 hover:shadow-lg dark:hover:shadow-lg-light dark:bg-gray-900"
+            class="flex flex-col grow block self-center justify-self-center w-full h-fit bg-white rounded-lg border border-gray-100 hover:border-white dark:border-gray-800 dark:hover:border-gray-700 hover:shadow-lg dark:hover:shadow-lg-light dark:bg-gray-900"
         >
             <div class="bg-gray-50 dark:bg-gray-800 rounded-t-md py-2.5 px-5 flex justify-between items-center border-b border-gray-200 dark:border-gray-700">
                 <span class="font-medium text-gray-900 dark:text-white">

@@ -20,7 +20,7 @@ function Home() {
                     <Card style="height: 35%; font-size: 0.7rem;"></Card>
                 </Card>
                 <Card title="Gallery" style="height: 100%;">
-                    <Gallery cols="2" sm-cols="2">
+                    <Gallery cols="2">
                         <Card style="height: 70%; font-size: 0.7rem;"></Card>
                         <Card style="height: 70%; font-size: 0.7rem;"></Card>
                     </Gallery>
@@ -41,7 +41,6 @@ function Home() {
                     </Gallery>
                 </Card>
             </Gallery>
-            
         </main>
     `;
 }

@@ -1,10 +1,10 @@
 import { load } from "emmy-dom";
 
 function Gallery() {
-    let cols = this.getAttribute('cols') ?? 3;
-    let smCols = this.getAttribute('sm-cols') ?? 2;
+    let cols = this.getAttribute('cols') ?? 1;
+    let largeCols = this.getAttribute('large-cols') ?? 2;
 
-    this.className = `grid grid-cols-${cols} gap-6 sm:grid-cols-${smCols} w-full`;
+    this.className = `grid auto-rows-fr grid-cols-${cols} md:grid-cols-${largeCols} gap-6 w-full`;
 
     return this.innerHTML;
 }
