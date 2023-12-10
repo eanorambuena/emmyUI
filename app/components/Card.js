@@ -1,4 +1,5 @@
 import { load } from "emmy-dom";
+import "./Link.js";
 
 function Card() {
     this.className = 'flex flex-col justify-center items-center grow w-full h-fit self-center justify-self-center';
