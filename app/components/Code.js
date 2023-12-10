@@ -11,6 +11,10 @@ export function PrepareCode(code) {
         .replace(/'/g, "&#39;");
 }
 
+export function code(strings, ...values) {
+    return PrepareCode(String.raw(strings, ...values));
+}
+
 function Code () { 
     this.className = 'text-left rounded-md flex flex-col justify-center items-center w-full bg-gray-100 dark:bg-gray-800 text-clip';
 
