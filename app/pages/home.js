@@ -10,7 +10,7 @@ const BASE = '/emmyUI';
 
 const componentPath = path(`${BASE}/component`);
 
-function Home() {
+export function Home() {
     this.className = 'flex flex-col my-[20%] md:my-[10%] items-center text-center w-full h-fit gap-[3rem]';
 
     return /*html*/`

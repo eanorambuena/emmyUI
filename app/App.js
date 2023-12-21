@@ -1,7 +1,6 @@
-import { load } from "emmy-dom";
+import { load, Router } from "emmy-dom/dist/server.js";
 import "./components/Link.js";
 import "./components/Nav.js";
-import "./components/Main.js";
 import "./pages/home.js";
 import "./pages/cardPage.js";
 import "./pages/galleryPage.js";
@@ -11,7 +10,7 @@ const BASE = '/emmyUI';
 
 load(`${BASE}/code404.html`, 'Code404');
 
-function App () {
+export function App () {
   this.behave('div');
   this.className = 'flex flex-col justify-space-between space-y-3 text-center w-full max-w-full overflow-x-hidden h-fit';
 
@@ -26,12 +25,12 @@ function App () {
     >
       <Link href="" to="home"></Link>
       <Link href="/">Home</Link>
-      <Link href="/component/card" to="cardPage">Card</Link>
-      <Link href="/component/gallery" to="galleryPage">Gallery</Link>
-      <Link href="/component/stars" to="starsPage">Stars</Link>
+      <Link href="/component/card" to="CardPage">Card</Link>
+      <Link href="/component/gallery" to="GalleryPage">Gallery</Link>
+      <Link href="/component/stars" to="StarsPage">Stars</Link>
     </Nav>
-    <Main></Main>
+    <Router></Router>
   `;
 }
 
-load(App, 'App');
+export const $App = load(App, 'App');

@@ -1,6 +1,6 @@
-import { load } from 'emmy-dom';
+import { load } from "emmy-dom/dist/server.js";
 
-function Star() {
+export function Star() {
   const active = () => this.getAttribute('active') === 'true';
   this.className = `flex items-center inline text-yellow-500`;
 

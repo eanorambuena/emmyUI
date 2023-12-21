@@ -12,8 +12,461 @@
   </head>
   <body class="antialiased min-h-screen w-screen flex flex-col justify-center items-center bg-white dark:bg-gray-900">
     <main class="flex flex-col justify-center items-center space-y-3 text-center w-full h-fit min-h-full">
-      <script type='module' src='./app/App.js'></script>
-      <emmy-app></emmy-app>
+      <emmy-app state="{'rerenderCount':0}" is="div" class="flex flex-col justify-space-between space-y-3 text-center w-full max-w-full overflow-x-hidden h-fit">
+    <emmy-nav state="{'rerenderCount':0}" base="/emmyUI" brand="EmmyUI" brand-href="/emmyUI/" brand-img="https://emmyjs.github.io/logo.png" cta="Learn More About Emmy.js" cta-href="https://emmyjs.github.io">
+		<nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+			<div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+				<a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+					
+					
+				</a>
+				<div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+					<a href="#" target="_self" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 hidden md:block">
+						Get Started
+					</a>
+					<button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
+						<span class="sr-only">Open main menu</span>
+						<svg class="w-5 h-5" aria-hidden="true" fill="none" viewBox="0 0 17 14">
+							<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"></path>
+						</svg>
+					</button>
+				</div>
+				<div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+					<ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+						
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</emmy-nav>
+    <emmy-router is="div" class="flex flex-col justify-center items-center space-y-3 text-center w-full h-fit box-border"><h1>404</h1></emmy-router>
+  </emmy-app>
+    <script type="module">
+      
+    import { load, html, Router } from 'emmy-dom';
+  
+      
+    function App () {
+  this.behave('div');
+  this.className = 'flex flex-col justify-space-between space-y-3 text-center w-full max-w-full overflow-x-hidden h-fit';
+
+  return /*html*/`
+    <Nav
+      base="${BASE}"
+      brand="EmmyUI"
+      brand-href="${BASE}/"
+      brand-img="https://emmyjs.github.io/logo.png"
+      cta="Learn More About Emmy.js"
+      cta-href="https://emmyjs.github.io"
+    >
+      <Link href="" to="home"></Link>
+      <Link href="/">Home</Link>
+      <Link href="/component/card" to="CardPage">Card</Link>
+      <Link href="/component/gallery" to="GalleryPage">Gallery</Link>
+      <Link href="/component/stars" to="StarsPage">Stars</Link>
+    </Nav>
+    <Router></Router>
+  `;
+}
+    load(App, 'App');
+    document.querySelectorAll('emmy-app').forEach((element) => {
+      element.connectedCallback();
+    });
+  
+    function CardPage() {
+    this.className = 'flex flex-col my-[10%] items-center text-center w-full h-fit gap-[3rem]';
+
+    return /*html*/`
+        <Hero
+            title="Card component"
+            subtitle="Component for displaying content in a card"
+        ></Hero>
+        <main class="flex flex-col items-center w-[70%] h-fit gap-[3rem]">
+            <Card></Card>
+            <Code language="html" copy="true">${code`<Card></Card>`}</Code>
+        </main>
+    `;
+}
+    load(CardPage, 'CardPage');
+    document.querySelectorAll('emmy-cardpage').forEach((element) => {
+      element.connectedCallback();
+    });
+  
+    function GalleryPage() {
+    this.className = 'flex flex-col my-[10%] items-center text-center w-full h-fit gap-[3rem]';
+
+    return /*html*/`
+        <Hero
+            title="Gallery component"
+            subtitle="Component to display a gallery of cards"
+        ></Hero>
+        <main class="flex flex-col items-center w-[70%] h-fit gap-[3rem]">
+            <Gallery cols="2">
+                <Card></Card>
+                <Card></Card>
+            </Gallery>
+            <Code language="html" copy="true">${code`
+<Gallery cols="2">
+    <Card></Card>
+    <Card></Card>
+</Gallery>
+                `}</Code>
+        </main>
+    `;
+}
+    load(GalleryPage, 'GalleryPage');
+    document.querySelectorAll('emmy-gallerypage').forEach((element) => {
+      element.connectedCallback();
+    });
+  
+    function Home() {
+    this.className = 'flex flex-col my-[20%] md:my-[10%] items-center text-center w-full h-fit gap-[3rem]';
+
+    return /*html*/`
+        <Hero
+            title="EmmyUI component library"
+            subtitle="A simple component library for EmmyUI, based on TailwindCSS + Flowbite"
+        ></Hero>
+        <main class="flex flex-col items-center w-[70%] h-fit gap-[3rem]">
+            <Gallery>
+                <Card title="Card" style="height: 100%;" href="${componentPath`card`}">
+                    <Card style="height: 35%; font-size: 0.7rem;"></Card>
+                </Card>
+                <Card title="Gallery" style="height: 100%;" href="${componentPath`gallery`}">
+                    <Gallery cols="2">
+                        <Card style="height: 70%; font-size: 0.7rem;"></Card>
+                        <Card style="height: 70%; font-size: 0.7rem;"></Card>
+                    </Gallery>
+                </Card>
+                <Card title="Stars" style="height: 100%;" href="${componentPath`stars`}">
+                    <Stars number='3'></Stars>
+                </Card>
+                <Card title="Card" style="height: 100%;" href="${componentPath`card`}">
+                    <Card style="height: 35%; font-size: 0.7rem;"></Card>
+                </Card>
+                <Card title="Stars" style="height: 100%;" href="${componentPath`stars`}">
+                    <Stars number='3'></Stars>
+                </Card>
+                <Card title="Gallery" style="height: 100%;" href="${componentPath`gallery`}">
+                    <Gallery cols="2" sm-cols="2">
+                        <Card style="height: 70%; font-size: 0.7rem;"></Card>
+                        <Card style="height: 70%; font-size: 0.7rem;"></Card>
+                    </Gallery>
+                </Card>
+            </Gallery>
+        </main>
+    `;
+}
+    load(Home, 'Home');
+    document.querySelectorAll('emmy-home').forEach((element) => {
+      element.connectedCallback();
+    });
+  
+    function StarsPage() {
+    this.className = 'flex flex-col my-[10%] items-center text-center w-full h-fit gap-[3rem]';
+
+    return /*html*/`
+        <Hero
+            title="Stars component"
+            subtitle="Rating component"
+        ></Hero>
+        <main class="flex flex-col items-center w-[70%] h-fit gap-[3rem]">
+            <Stars number='3'></Stars>
+            <Code language="html" copy="true">${code`<Stars number='3'></Stars>`}</Code>
+        </main>
+    `;
+}
+    load(StarsPage, 'StarsPage');
+    document.querySelectorAll('emmy-starspage').forEach((element) => {
+      element.connectedCallback();
+    });
+  
+    function Card() {
+    this.className = 'flex flex-col justify-center items-center grow w-full h-fit self-center justify-self-center';
+
+    let href = this.getAttribute('href') ?? '#';
+    let title = this.getAttribute('title') ?? 'Card title';
+    let imgSrc = this.getAttribute('image');
+    let imgAlt = this.getAttribute('image-alt') ?? 'Card image';
+    let useContent = !!this.innerHTML;
+    let lightImgSrc = this.getAttribute('light-image') ?? imgSrc ?? 'https://placehold.co/300x200/FFFFFF/1F2937';
+    let darkImgSrc = this.getAttribute('dark-image') ?? imgSrc ?? 'https://placehold.co/300x200/1F2937/FFF';
+
+    return /*html*/`
+        <a
+            href="${href}"
+            class="flex flex-col grow block self-center justify-self-center w-full h-fit bg-white rounded-lg border border-gray-100 hover:border-white dark:border-gray-800 dark:hover:border-gray-700 hover:shadow-lg dark:hover:shadow-lg-light dark:bg-gray-900"
+        >
+            <div class="bg-gray-50 dark:bg-gray-800 rounded-t-md py-2.5 px-5 flex justify-between items-center border-b border-gray-200 dark:border-gray-700">
+                <span class="font-medium text-gray-900 dark:text-white">
+                    ${title}
+                </span>
+                <span class="text-gray-500 dark:text-gray-400">
+                    <svg class="w-3.5 h-3.5" aria-hidden="true" fill="none" viewBox="0 0 18 18">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"></path>
+                    </svg>
+                </span>
+            </div>
+            ${
+                useContent ? /*html*/`
+                    <div class="flex flex-col justify-center items-center grow p-3">
+                        ${this.innerHTML}
+                    </div>
+                ` : /*html*/`
+                    <div class="flex flex-col justify-center items-center grow  p-3 dark:hidden">
+                        <img alt="${imgAlt}" src="${lightImgSrc}" decoding="async" class="w-full h-auto block">
+                    </div>
+                    <div class="flex flex-col justify-center items-center grow p-3 hidden dark:block">
+                        <img alt="${imgAlt}" src="${darkImgSrc}" decoding="async" class="w-full h-auto">
+                    </div>
+                `
+            }
+        </a>
+    `;
+}
+    load(Card, 'Card');
+    document.querySelectorAll('emmy-card').forEach((element) => {
+      element.connectedCallback();
+    });
+  
+    function Code() { 
+    this.className = 'text-left rounded-md flex flex-col justify-center items-center w-full bg-gray-100 dark:bg-gray-800 text-clip';
+
+    this.callback = () => {
+        if (this.getAttribute('copy') === 'true') {
+            this.addEventListener('click', (e) => {
+                if (e.target.tagName === 'BUTTON') {
+                    const code = e.target.parentNode.querySelector('pre code');
+                    navigator.clipboard.writeText(code.innerText);
+                }
+            });
+        }
+    };
+
+    return () => /*html*/`
+        <div class="grid w-full grid-cols-2 border-b border-gray-200 bg-gray-50 rounded-b-none rounded-t-md dark:bg-gray-700 dark:border-gray-600">
+            <ul class="flex text-sm font-medium text-center text-gray-500 dark:text-gray-400">
+                <li>
+                    <span class="inline-block w-full p-2 px-3 text-gray-800 bg-gray-100 rounded-tl-md border-r border-gray-200 dark:text-white dark:bg-gray-800 dark:border-gray-600">
+                        ${this.getAttribute('language')}
+                    </span>
+                </li>
+            </ul>
+            ${
+                this.getAttribute('copy') === 'true' ? /*html*/`
+                    <div class="flex justify-end">
+                        <button type="button" data-copy-state="copy" class="flex items-center px-3 py-2 text-xs font-medium text-gray-600 bg-gray-100 border-l border-gray-200 dark:border-gray-600 dark:text-gray-400 dark:bg-gray-800 hover:text-blue-700 dark:hover:text-white rounded-tr-md">
+                            <svg class="w-3.5 h-3.5 mr-2" aria-hidden="true" fill="currentColor" viewBox="0 0 18 20">
+                                <path d="M5 9V4.13a2.96 2.96 0 0 0-1.293.749L.879 7.707A2.96 2.96 0 0 0 .13 9H5Zm11.066-9H9.829a2.98 2.98 0 0 0-2.122.879L7 1.584A.987.987 0 0 0 6.766 2h4.3A3.972 3.972 0 0 1 15 6v10h1.066A1.97 1.97 0 0 0 18 14V2a1.97 1.97 0 0 0-1.934-2Z"></path>
+                                <path d="M11.066 4H7v5a2 2 0 0 1-2 2H0v7a1.969 1.969 0 0 0 1.933 2h9.133A1.97 1.97 0 0 0 13 18V6a1.97 1.97 0 0 0-1.934-2Z"></path>
+                            </svg>
+                            <span class="copy-text">Copy</span>
+                        </button>
+                    </div>
+                `
+                : ''
+            }
+        </div>
+        <div class="overflow-auto bg-gray-100 dark:bg-gray-800 rounded-t-none rounded-b-md p-4 dark:text-gray-400 w-full h-fit">
+            <pre>
+<code class="h-fit">${this.innerHTML.trim()}</code>
+            </pre>
+        </div>
+    `;
+    }
+    load(Code, 'Code');
+    document.querySelectorAll('emmy-code').forEach((element) => {
+      element.connectedCallback();
+    });
+  
+    function Gallery() {
+    let cols = this.getAttribute('cols') ?? 1;
+    let largeCols = this.getAttribute('large-cols') ?? 2;
+
+    this.className = `grid auto-rows-fr grid-cols-${cols} md:grid-cols-${largeCols} gap-6 w-full`;
+
+    return this.innerHTML;
+}
+    load(Gallery, 'Gallery');
+    document.querySelectorAll('emmy-gallery').forEach((element) => {
+      element.connectedCallback();
+    });
+  
+    function Hero() {
+    this.className = "py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12 border-b border-gray-200 dark:border-gray-700";
+    let title = this.getAttribute("title") ?? "Hero";
+    let subtitle = this.getAttribute("subtitle") ?? "Subtitle";
+
+    return /*html*/ `
+        <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+            ${title}
+        </h1>
+        <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">
+            ${subtitle}
+        </p>
+    `;
+}
+    load(Hero, 'Hero');
+    document.querySelectorAll('emmy-hero').forEach((element) => {
+      element.connectedCallback();
+    });
+  
+    function Link() {
+	let href = this.getAttribute('href');
+	let text = this.innerText;
+	let to = this.getAttribute('to') ?? text;
+	let className = this.getAttribute('class') ?? 'block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700';
+
+	return /*html*/`
+		<a
+			emmy-link
+			href="${href}"
+			class="${className}"
+			onclick="window.route(event)"
+			to="${to}"
+		>
+			${text}
+		</a>
+	`;
+}
+    load(Link, 'Link');
+    document.querySelectorAll('emmy-link').forEach((element) => {
+      element.connectedCallback();
+    });
+  
+    function Nav() {
+	let basePath = this.getAttribute('base') ?? '';
+	let brandText = this.getAttribute('brand');
+	let brandHref = this.getAttribute('brand-href') ?? '#';
+	let brandImg = this.getAttribute('brand-img');
+	let callToActionText = this.getAttribute('cta') ?? 'Get Started';
+	let callToActionHref = this.getAttribute('cta-href') ?? '#';
+	let callToActionTarget = this.getAttribute('cta-target') ?? '_self';
+	let callToActionClass = this.getAttribute('cta-class') ?? 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800';
+
+	const [hidden, setHidden] = this.useState(true);
+
+	this.useEffect(() => {
+		const $menu = this.querySelector('#navbar-sticky');
+		const $button = this.querySelector('[data-collapse-toggle]');
+
+		const isClickOutside = (target) => {
+			if ($menu.contains(target)) return false;
+			let menuHeight = $menu.offsetHeight;
+			return target.offsetTop > menuHeight;
+		}
+
+		const toggleHidden = () => {
+			setHidden(!hidden());
+		};
+
+		$button.addEventListener('click', toggleHidden);
+
+		document.addEventListener('click', (event) => {
+			if (!hidden() && isClickOutside(event.target)) {
+				toggleHidden();
+				this.rerender(); // document is not tracked by useEffect, so we need to rerender manually
+			}
+		});
+
+		this.querySelectorAll('[emmy-link]').forEach(($anchor) => {
+			let href = $anchor.getAttribute('href');
+			$anchor.setAttribute('href', basePath + href);
+			let to = $anchor.getAttribute('to') ?? $anchor.innerText;
+
+			let $route = document.createElement('emmy-route');
+			$route.setAttribute('href', basePath + href);
+			$route.setAttribute('to', to);
+			this.appendChild($route);
+		});
+	}, ['didMount']);
+
+	this.useEffect(() => {
+		const $menu = this.querySelector('#navbar-sticky');
+		const $button = this.querySelector('[data-collapse-toggle]');
+
+		$button.setAttribute('aria-expanded', hidden());
+		$menu.setAttribute('aria-expanded', hidden());
+		$menu.classList = hidden() ? 'hidden' : 'w-full md:block md:w-auto shadow-lg md:shadow-none';
+	}, [hidden]);
+
+	return /*html*/`
+		<nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+			<div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+				<a href="${brandHref}" class="flex items-center space-x-3 rtl:space-x-reverse">
+					${
+						brandImg ? `<img src="${brandImg}" class="h-8" alt="Flowbite Logo">` : ''
+					}
+					${
+						brandText ? `<span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">${brandText}</span>` : ''
+					}
+				</a>
+				<div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+					<a href="${callToActionHref}" target=${callToActionTarget} class="${callToActionClass} hidden md:block">
+						${callToActionText}
+					</a>
+					<button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
+						<span class="sr-only">Open main menu</span>
+						<svg class="w-5 h-5" aria-hidden="true" fill="none" viewBox="0 0 17 14">
+							<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+						</svg>
+					</button>
+				</div>
+				<div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+					<ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+						${
+							this.innerHTML
+						}
+					</ul>
+				</div>
+			</div>
+		</nav>
+	`;
+}
+    load(Nav, 'Nav');
+    document.querySelectorAll('emmy-nav').forEach((element) => {
+      element.connectedCallback();
+    });
+  
+    function Star() {
+  const active = () => this.getAttribute('active') === 'true';
+  this.className = `flex items-center inline text-yellow-500`;
+
+  return /*html*/`
+    <svg class="w-4 h-4 me-1 ${ active() ? 'text-yellow-500' : 'text-gray-500' }" aria-hidden="true" fill="currentColor" viewBox="0 0 22 20">
+      <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+    </svg>
+  `;
+}
+    load(Star, 'Star');
+    document.querySelectorAll('emmy-star').forEach((element) => {
+      element.connectedCallback();
+    });
+  
+    function Stars() {
+  this.className = 'flex items-center inline';
+  const number = Number.parseFloat(this.getAttribute('number'));
+  let stars = '';
+  for (let i = 0; i < 5; i++) {
+    stars += /*html*/`
+      <Star active="${i < Math.round(number - 0.25)}"></Star>
+    `;
+  }
+
+  return /*html*/`
+    ${stars}
+    <p class="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">${number}</p>
+    <p class="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">estrellas de</p>
+    <p class="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">5</p>
+  `;
+}
+    load(Stars, 'Stars');
+    document.querySelectorAll('emmy-stars').forEach((element) => {
+      element.connectedCallback();
+    });
+  
+    </script>
+  
     </main>
   </body>
 </html>

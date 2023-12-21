@@ -1,7 +1,7 @@
-import { load } from "emmy-dom";
+import { load } from "emmy-dom/dist/server.js";
 import "./Link.js";
 
-function Nav() {
+export function Nav() {
 	let basePath = this.getAttribute('base') ?? '';
 	let brandText = this.getAttribute('brand');
 	let brandHref = this.getAttribute('brand-href') ?? '#';
@@ -13,7 +13,7 @@ function Nav() {
 
 	const [hidden, setHidden] = this.useState(true);
 
-	this.callback = () => {
+	this.useEffect(() => {
 		const $menu = this.querySelector('#navbar-sticky');
 		const $button = this.querySelector('[data-collapse-toggle]');
 
@@ -46,7 +46,7 @@ function Nav() {
 			$route.setAttribute('to', to);
 			this.appendChild($route);
 		});
-	};
+	}, ['didMount']);
 
 	this.useEffect(() => {
 		const $menu = this.querySelector('#navbar-sticky');

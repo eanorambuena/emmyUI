@@ -5,7 +5,7 @@ import "../components/Gallery.js";
 import "../components/Card.js";
 import { code } from "../components/Code.js";
 
-function GalleryPage() {
+export function GalleryPage() {
     this.className = 'flex flex-col my-[10%] items-center text-center w-full h-fit gap-[3rem]';
 
     return /*html*/`

@@ -4,7 +4,7 @@ import "../components/Hero.js";
 import "../components/Stars.js";
 import { code } from "../components/Code.js";
 
-function StarsPage() {
+export function StarsPage() {
     this.className = 'flex flex-col my-[10%] items-center text-center w-full h-fit gap-[3rem]';
 
     return /*html*/`

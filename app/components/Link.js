@@ -1,6 +1,6 @@
-import { load } from "emmy-dom";
+import { load } from "emmy-dom/dist/server.js";
 
-function Link() {
+export function Link() {
 	let href = this.getAttribute('href');
 	let text = this.innerText;
 	let to = this.getAttribute('to') ?? text;

@@ -1,4 +1,4 @@
-import { load } from "emmy-dom";
+import { load } from "emmy-dom/dist/server.js";
 
 export function PrepareCode(code) {
     return code
@@ -15,7 +15,7 @@ export function code(strings, ...values) {
     return PrepareCode(String.raw(strings, ...values));
 }
 
-function Code () { 
+export function Code() { 
     this.className = 'text-left rounded-md flex flex-col justify-center items-center w-full bg-gray-100 dark:bg-gray-800 text-clip';
 
     this.callback = () => {

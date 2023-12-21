@@ -1,7 +1,7 @@
-import { load } from "emmy-dom";
+import { load } from "emmy-dom/dist/server.js";
 import "./Link.js";
 
-function Card() {
+export function Card() {
     this.className = 'flex flex-col justify-center items-center grow w-full h-fit self-center justify-self-center';
 
     let href = this.getAttribute('href') ?? '#';

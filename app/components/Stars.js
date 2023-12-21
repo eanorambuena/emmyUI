@@ -1,7 +1,7 @@
-import { load } from 'emmy-dom';
+import { load } from "emmy-dom/dist/server.js";
 import './Star.js';
 
-function Stars() {
+export function Stars() {
   this.className = 'flex items-center inline';
   const number = Number.parseFloat(this.getAttribute('number'));
   let stars = '';
@@ -21,7 +21,7 @@ function Stars() {
 
 load(Stars, 'Stars');
 
-function Stars_form() {
+export function Stars_form() {
   this.className = 'flex items-center inline';
   const number = Number.parseFloat(this.getAttribute('number'));
   let stars = '';

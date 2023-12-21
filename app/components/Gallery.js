@@ -1,6 +1,6 @@
-import { load } from "emmy-dom";
+import { load } from "emmy-dom/dist/server.js";
 
-function Gallery() {
+export function Gallery() {
     let cols = this.getAttribute('cols') ?? 1;
     let largeCols = this.getAttribute('large-cols') ?? 2;
 

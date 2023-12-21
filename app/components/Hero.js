@@ -1,6 +1,6 @@
-import { load } from "emmy-dom";
+import { load } from "emmy-dom/dist/server.js";
 
-function Hero() {
+export function Hero() {
     this.className = "py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12 border-b border-gray-200 dark:border-gray-700";
     let title = this.getAttribute("title") ?? "Hero";
     let subtitle = this.getAttribute("subtitle") ?? "Subtitle";
